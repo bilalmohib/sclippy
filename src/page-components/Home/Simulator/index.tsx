@@ -7,12 +7,22 @@ import { Button, TextField } from "@mui/material";
 import { macOSCommands } from "./data";
 
 const Simulator = () => {
-    const [theme, setTheme] = useState(localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') || 'light');
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(currentTheme);
-    }, [localStorage.theme]);
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+            const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(currentTheme);
+        }
+    }, []);
+
+    const handleThemeChange = () => {
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+            localStorage.theme = newTheme;
+        }
+    };
 
     return (
         <div className="mt-10">
