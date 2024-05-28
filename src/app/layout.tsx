@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from 'next-themes';
 import MainAppLayout from "@/layouts/MainAppLayout";
 import "./globals.css";
+import SnackBarProvider from "@/providers/SnackBarProvider";
 
 export const metadata: Metadata = {
   title: "Sclippy - The Mac OS Shortcut Simulator",
@@ -16,11 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white dark:bg-black">
-        <ThemeProvider>
+        <SnackBarProvider>
           <MainAppLayout>
             {children}
           </MainAppLayout>
-        </ThemeProvider>
+        </SnackBarProvider>
       </body>
     </html>
   );

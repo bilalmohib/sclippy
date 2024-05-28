@@ -1,3 +1,4 @@
+import TopNav from "@/components/TopNav";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -10,8 +11,14 @@ const MainAppLayout = ({
 }: MainAppLayoutProps) => {
     return (
         <div>
-            <Header />
-            {children}
+            <TopNav />
+            <section className="px-10">
+                <Header />
+                {children}
+            </section>
+
+            <br />
+            <br />
             <Footer />
         </div>
     )

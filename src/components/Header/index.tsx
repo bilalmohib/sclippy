@@ -1,38 +1,20 @@
 "use client";
 import Logo from './Logo';
 import NavItems from './NavItems';
-import { useTheme } from 'next-themes';
-import { Button } from "@mui/material";
-import { useEffect, useState } from 'react';
+import NavActionButtons from './NavActionButtons';
 
-const Header = () => {
-    const [theme, setTheme] = useState('light');
+interface HeaderProps {
+    className?: string;
+}
 
-    useEffect(() => {
-        const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(currentTheme);
-        document.documentElement.classList.add(currentTheme);
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        document.documentElement.classList.remove(theme);
-        document.documentElement.classList.add(newTheme);
-        localStorage.theme = newTheme;
-    };
-
+const Header = ({
+    className
+}: HeaderProps) => {
     return (
-        <header>
-            <Logo className="border border-red-500 border-solid" />
+        <header className={`flex flex-row justify-between items-center w-full py-5 ${className}`}>
+            <Logo />
             <NavItems />
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={toggleTheme}
-            >
-                Change Theme - {theme === 'dark' ? 'Light' : 'Dark'}
-            </Button>
+            <NavActionButtons />
         </header>
     )
 }
