@@ -7,13 +7,12 @@ import { Button, TextField } from "@mui/material";
 import { macOSCommands } from "./data";
 
 const Simulator = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') || 'light');
 
     useEffect(() => {
         const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         setTheme(currentTheme);
-        document.documentElement.classList.add(currentTheme);
-    }, []);
+    }, [localStorage.theme]);
 
     return (
         <div className="mt-10">
@@ -21,7 +20,7 @@ const Simulator = () => {
                 Simulator Playground
             </h3>
 
-            <TextField
+            {/* <TextField
                 id="simulatorTextField"
                 label=""
                 multiline
@@ -29,7 +28,7 @@ const Simulator = () => {
                 variant="outlined"
                 color="primary"
                 fullWidth
-                className="rounded-2xl text-4xl text-white"
+                className="rounded-2xl text-4xl text-black dark:text-white"
                 placeholder="Please enter a text to try it the commands"
                 InputProps={{
                     sx: {
@@ -40,6 +39,16 @@ const Simulator = () => {
                         border: (theme === "dark") ? "2px solid white" : "none"
                     }
                 }}
+            /> */}
+
+            <textarea
+                id="simulatorTextField"
+                className="w-full h-72 rounded-2xl text-xl text-black dark:text-white
+                outline-none bg-transparent placeholder-gray-400 dark:placeholder-gray-300
+                focus:ring border-2 border-solid border-blue-600 dark:border dark:border-solid dark:border-white focus:border-0 focus:outline-none p-3
+                "
+                placeholder="Please enter a text to try it the commands"
+                rows={5}
             />
 
             <Alert icon={<CheckIcon fontSize="inherit" />} severity="success" className="mt-6">
