@@ -1,12 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, ChangeEvent } from "react";
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 import { Button, TextField } from "@mui/material";
 import { macOSCommands } from "./data";
+import KeyboardWrapper from "@/components/KeyboardWrapper";
 
 const Simulator = () => {
+    const keyboard = useRef(null);
+    const [input, setInput] = useState("");
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -16,11 +19,13 @@ const Simulator = () => {
         }
     }, []);
 
-    const handleThemeChange = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-            localStorage.theme = newTheme;
+    const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
+        const input = event.target.value;
+        setInput(input);
+
+        if (keyboard.current) {
+            // @ts-ignore
+            keyboard.current.setInput(input);
         }
     };
 
@@ -30,27 +35,6 @@ const Simulator = () => {
                 Simulator Playground
             </h3>
 
-            {/* <TextField
-                id="simulatorTextField"
-                label=""
-                multiline
-                rows={10}
-                variant="outlined"
-                color="primary"
-                fullWidth
-                className="rounded-2xl text-4xl text-black dark:text-white"
-                placeholder="Please enter a text to try it the commands"
-                InputProps={{
-                    sx: {
-                        borderRadius: 3,
-                        fontSize: 22,
-                        padding: 3,
-                        color: (theme === "dark") ? "white" : "black",
-                        border: (theme === "dark") ? "2px solid white" : "none"
-                    }
-                }}
-            /> */}
-
             <textarea
                 id="simulatorTextField"
                 className="w-full h-72 rounded-2xl text-xl text-black dark:text-white
@@ -59,7 +43,13 @@ const Simulator = () => {
                 "
                 placeholder="Please enter a text to try it the commands"
                 rows={5}
+                value={input}
+                onChange={(e: any) => onChangeInput(e)}
             />
+
+            <div className="mt-6">
+                <KeyboardWrapper keyboardRef={keyboard} onChange={setInput} />
+            </div>
 
             <Alert icon={<CheckIcon fontSize="inherit" />} severity="success" className="mt-6">
                 The entered command will be displayed with green color.

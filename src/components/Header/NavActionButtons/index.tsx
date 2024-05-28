@@ -1,8 +1,11 @@
+"use client";
 import { useEffect, useState } from 'react';
 import { Button } from "@mui/material";
 import ThemeSwitch from '@/components/ThemeSwitch';
+import { useRouter } from 'next/navigation';
 
 const NavActionButtons = () => {
+    const router = useRouter();
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -26,6 +29,7 @@ const NavActionButtons = () => {
                     variant="contained"
                     color="primary"
                     className="bg-buttons text-white text-xl h-10 normal-case"
+                    onClick={() => router.push("/simulator")}
                 >
                     Try for free
                 </Button>

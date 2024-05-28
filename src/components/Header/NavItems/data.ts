@@ -9,7 +9,7 @@ export const NavItemsList = [
     },
     {
         name: "Simulator",
-        path: "/services",
+        path: "/simulator",
     },
     {
         name: "Learn",

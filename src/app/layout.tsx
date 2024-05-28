@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import MainAppLayout from "@/layouts/MainAppLayout";
-import "./globals.css";
 import SnackBarProvider from "@/providers/SnackBarProvider";
+import "react-simple-keyboard/build/css/index.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Sclippy - The Mac OS Shortcut Simulator",
