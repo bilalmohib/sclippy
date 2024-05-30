@@ -11,13 +11,51 @@ const Simulator = () => {
     const keyboard = useRef(null);
     const [input, setInput] = useState("");
     const [theme, setTheme] = useState('light');
+    const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+    const [isMac, setIsMac] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
             const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             setTheme(currentTheme);
+
+            // Check the platform
+            const platform = window.navigator.platform;
+            if (platform.indexOf("Mac") !== -1) {
+                setIsMac(true);
+                console.log("The user is running Mac OS");
+            } else if (platform.indexOf("Win") !== -1) {
+                console.log("The user is running Windows");
+            } else if (platform.indexOf("Linux") !== -1) {
+                console.log("The user is running Linux");
+            } else {
+                console.log("The user's operating system could not be determined");
+            }
         }
-    }, []);
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const isCommandKey = isMac ? e.metaKey : e.ctrlKey;
+
+            if (isCommandKey) {
+                // if (e.key === 'c' || e.key === 'v') {
+                //     e.preventDefault(); // prevent copying and pasting
+                // }
+
+                console.log("Current key: ", e.key, "Current ctrlKey: ", e.ctrlKey, "Current metaKey: ", e.metaKey);
+
+                // const commandIndex = macOSCommands.findIndex(command => command.key === e.key && command.ctrlKey);
+                // if (commandIndex !== -1) {
+                //     setHighlightedIndex(commandIndex);
+                // }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isMac]);
 
     const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
         const input = event.target.value;
@@ -57,12 +95,13 @@ const Simulator = () => {
 
             <div className="mt-10 grid grid-cols-6 gap-5">
                 {macOSCommands.map((command, index) => {
+                    const isHighlighted = highlightedIndex === index;
                     return (
                         <Button
                             key={index}
                             variant="contained"
-                            color="primary"
-                            className={`py-3 px-4 normal-case text-xl ${index === 0 ? "bg-green-600 hover:bg-green-800" : "bg-buttons hover:bg-blue-600"}`}
+                            color={isHighlighted ? "success" : "primary"}
+                            className={`py-3 px-4 normal-case text-xl ${isHighlighted ? "bg-green-600 hover:bg-green-800" : "bg-buttons hover:bg-blue-600"}`}
                             title={command.description}
                         >
                             {command.name}
@@ -73,4 +112,5 @@ const Simulator = () => {
         </div>
     )
 }
+
 export default Simulator;

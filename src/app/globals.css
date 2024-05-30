@@ -5,3 +5,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure you have these styles included in your CSS */
+.hg-button {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.hg-standard-key {
+    background-color: #fff;
+}
+
+.hg-special-key {
+    background-color: #f1f1f1;
+}
+
+.hg-button:active {
+    background-color: #ddd;
+}
+
+.hg-standard-key:active,
+.hg-special-key:active {
+    background-color: #bbb;
+}
+
+/* Highlighting keys when pressed */
+.hg-standard-key.hg-button-active,
+.hg-special-key.hg-button-active {
+    background-color: #aaa;
+}
+
+/* Highlight custom keys */
+.hg-button-active {
+    background-color: #aaa !important;
+}

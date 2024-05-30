@@ -32,7 +32,14 @@ const config: Config = {
       colors: {
         primary: "#5452B2",
         buttons: "#0E3EE6",
-        navText: "#2B2525"
+        navText: "#2B2525",
+        lightHeadingText: "#030098",
+        darkHeadingText: "#8ab9ee",
+        aboutUsLeftBannerBg: "#DBAE10",
+        aboutUsRightBannerBg: "#E9D694"
+      },
+      backgroundImage: {
+        'banner-keyboard': "url('/Home/banner.png')"
       }
     },
   },

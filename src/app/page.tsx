@@ -5,7 +5,9 @@ import Image from "next/image";
 function Home() {
   return (
     <main className="m-0 p-0">
-      <HomeBanner />
+      <div className="pl-20">
+        <HomeBanner />
+      </div>
     </main>
   );
 }
