@@ -53,7 +53,7 @@ const HomeBanner = () => {
             </div>
             <div className="w-6/12">
                 <div
-                    className="relative w-full h-[calc(100vh-200px)] bg-contain bg-center bg-no-repeat bg-banner-keyboard"
+                    className="relative w-full h-[calc(100vh-200px)] bg-cover bg-center bg-no-repeat bg-banner-keyboard"
                 />
             </div>
         </div>
