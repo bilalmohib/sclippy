@@ -18,8 +18,8 @@ const CourseSectionSlider = ({
     const startScrolling = () => {
         if (scrollContainerRef.current) {
             scrollInterval = setInterval(() => {
-                scrollContainerRef.current!.scrollBy({ left: 20, behavior: "smooth" });
-            }, 1);
+                scrollContainerRef.current!.scrollBy({ left: 1, behavior: "smooth" });
+            }, 300);
         }
     };
 
@@ -39,9 +39,8 @@ const CourseSectionSlider = ({
                 <div ref={scrollContainerRef} className="relative overflow-x-scroll flex flex-row flex-nowrap gap-3 max-w-80% pb-5">
                     {
                         course_slider_data.map((data, index) => (
-                            <div className="flex-shrink-0 flex-grow-0 basis-auto">
+                            <div key={index} className="flex-shrink-0 flex-grow-0 basis-auto">
                                 <CourseCard
-                                    key={index}
                                     data={data}
                                 />
                             </div>
