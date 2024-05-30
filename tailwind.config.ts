@@ -19,10 +19,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width: {
+        "80%": "80%"
+      },
       fontFamily: {
         raleway: ['"Raleway", sans-serif', ...defaultTheme.fontFamily.sans],
         inika: ["Inika", ...defaultTheme.fontFamily.serif],
-        kavivanar: ["Kavivanar", 'cursive']
+        kavivanar: ["Kavivanar", 'cursive'],
+        inter: ["Inter", ...defaultTheme.fontFamily.serif]
       },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
@@ -44,7 +48,8 @@ const config: Config = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp')
   ]
 };
 export default config;
