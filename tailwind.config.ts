@@ -63,7 +63,8 @@ const config: Config = {
         appSecondary: "#F0F0F0",
       },
       backgroundImage: {
-        'banner-keyboard': "url('/Home/banner.png')"
+        'banner-keyboard': "url('/Home/banner.png')",
+        "simulator-banner": "url('/simulator/simulator-banner.png')",
       }
     },
   },

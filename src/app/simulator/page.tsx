@@ -1,9 +1,9 @@
-import Simulator from "@/page-components/Home/Simulator";
+import SimulatorBanner from "@/app/simulator/SimulatorBanner";
 
 const SimulatorPage = () => {
     return (
         <div>
-            <Simulator />
+            <SimulatorBanner />
         </div>
     )
 }

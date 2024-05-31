@@ -3,7 +3,7 @@ import Logo from "@/components/Header/Logo";
 const Footer = () => {
     return (
         <footer className="bg-white dark:bg-gray-900">
-            <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen px-4 py-16 sm:px-6 lg:px-20">
                 <div className="lg:flex lg:items-start lg:gap-8">
                     <Logo />
 

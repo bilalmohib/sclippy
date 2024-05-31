@@ -27,7 +27,7 @@ const HomeBanner = () => {
                         </p>
                     </div>
 
-                    <div className="flex flex-row justify-center gap-12">
+                    <div className="flex flex-row justify-center gap-8">
                         <Button
                             variant="contained"
                             color="primary"
