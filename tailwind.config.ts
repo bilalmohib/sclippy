@@ -18,9 +18,22 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
+    },
     extend: {
       width: {
-        "80%": "80%"
+        "80%": "80%",
+        "428px": "428px",
+        "600px": "600px"
+      },
+      height: {
+        "416px": "416px",
+        "554px": "554px"
       },
       fontFamily: {
         raleway: ['"Raleway", sans-serif', ...defaultTheme.fontFamily.sans],
@@ -37,10 +50,17 @@ const config: Config = {
         primary: "#5452B2",
         buttons: "#0E3EE6",
         navText: "#2B2525",
+        bannerHeadingText: "#2220A5",
+        bannerHeadingCaption: "rgba(0, 0, 0, 0.70)",
         lightHeadingText: "#030098",
         darkHeadingText: "#8ab9ee",
+
+        // About Us Page 
         aboutUsLeftBannerBg: "#DBAE10",
-        aboutUsRightBannerBg: "#E9D694"
+        aboutUsRightBannerBg: "#E9D694",
+        aboutGoalsHeader: "#FBFBFF",
+        aboutGoalsBottomBar: "#DEAE07",
+        appSecondary: "#F0F0F0",
       },
       backgroundImage: {
         'banner-keyboard': "url('/Home/banner.png')"
