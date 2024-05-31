@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import CourseCard from "./CourseCard";
 import { course_slider_data } from "./data";
 import CourseSliderActionButtons from "./CourseSliderActionButtons";
@@ -13,21 +13,39 @@ const CourseSectionSlider = ({
 }: CourseSectionSliderProps) => {
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    let scrollInterval: NodeJS.Timeout | null = null;
+    const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+    const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
 
     const startScrolling = () => {
         if (scrollContainerRef.current) {
-            scrollInterval = setInterval(() => {
-                scrollContainerRef.current!.scrollBy({ left: 1, behavior: "smooth" });
-            }, 300);
+            const interval = setInterval(() => {
+                const container = scrollContainerRef.current!;
+                const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+                if (scrollDirection === 1 && container.scrollLeft >= maxScrollLeft) {
+                    setScrollDirection(-1); // Change direction to left
+                } else if (scrollDirection === -1 && container.scrollLeft <= 0) {
+                    setScrollDirection(1); // Change direction to right
+                }
+
+                container.scrollBy({ left: 30 * scrollDirection, behavior: "smooth" });
+            }, 50);
+            setScrollInterval(interval);
         }
     };
 
     const stopScrolling = () => {
         if (scrollInterval) {
             clearInterval(scrollInterval);
+            setScrollInterval(null);
         }
     };
+
+    useEffect(() => {
+        return () => {
+            stopScrolling(); // Clean up interval on component unmount
+        };
+    }, [scrollInterval]);
 
     return (
         <section>

@@ -1,8 +1,7 @@
 import HomeBanner from "@/page-components/Home/HomeBanner";
 import AboutUs from "@/page-components/Home/AboutUs";
-import Simulator from "@/page-components/Home/Simulator";
-import Image from "next/image";
 import WhyJoin from "@/page-components/Home/WhyJoin";
+import HomeSimulator from "@/page-components/Home/HomeSimulator";
 
 function Home() {
   return (
@@ -11,8 +10,8 @@ function Home() {
         <HomeBanner />
       </div>
       <AboutUs />
-
       <WhyJoin />
+      <HomeSimulator className="mt-16" />
     </main>
   );
 }
