@@ -1,7 +1,12 @@
+import LearnPageBanner from "@/app/learn/LearnPageBanner";
+import CoursesList from "./CoursesList";
+
 const LearnPage = () => {
     return (
         <div>
-            <h2 className="text-black dark:text-white text-3xl">Learn Page</h2>
+            <LearnPageBanner />
+
+            <CoursesList className="mt-10" />
         </div>
     )
 }

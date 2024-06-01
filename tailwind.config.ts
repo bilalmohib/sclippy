@@ -26,15 +26,20 @@ const config: Config = {
       roman: 'upper-roman',
     },
     extend: {
+      boxShadow: {
+        'course_card-shadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+      },
       margin: {
         "4.5": "14px"
       },
       width: {
         "80%": "80%",
         "428px": "428px",
-        "600px": "600px"
+        "508px": "508px",
+        "600px": "600px",
       },
       height: {
+        "284px": "284px",
         "416px": "416px",
         "554px": "554px"
       },
@@ -57,6 +62,8 @@ const config: Config = {
         bannerHeadingCaption: "rgba(0, 0, 0, 0.70)",
         lightHeadingText: "#030098",
         darkHeadingText: "#8ab9ee",
+        courseCardText: "#0B0B0A",
+        courseCardBg: "#E9E9E9",
 
         // About Us Page 
         aboutUsLeftBannerBg: "#DBAE10",
