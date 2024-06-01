@@ -3,15 +3,16 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
-import { Button, ButtonBase, TextField } from "@mui/material";
+import { Button, ButtonBase, Skeleton, TextField } from "@mui/material";
 import { macOSCommands } from "./data";
 import KeyboardWrapper from "@/components/KeyboardWrapper";
 import KeyboardIcon from '@mui/icons-material/Keyboard';
+import { course_result_statistics } from "./data";
 
 const Simulator = () => {
     const keyboard = useRef(null);
     const [input, setInput] = useState("");
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('');
     const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
     const [isMac, setIsMac] = useState(false);
 
@@ -102,71 +103,98 @@ const Simulator = () => {
 
     return (
         <div className="mt-10 px-20">
-            <div className="flex flex-row">
-                <TextField
-                    id="simulatorTextField"
-                    placeholder="Please enter a text to try it the commands"
-                    value={input}
-                    onChange={(e: any) => onChangeInput(e)}
-                    onKeyDown={(e: any) => handleKeyPress(e.key)}
-                    fullWidth
-                    className="text-2xl text-center"
-                    InputProps={{
-                        style: {
-                            fontSize: 18
-                        },
-                        inputProps: {
-                            style: { textAlign: "center" },
-                        },
-                        startAdornment: (
-                            <ButtonBase
-                                className="-ml-4.5 h-14 text-2xl font-light bg-gray-600 text-white px-4 rounded-tl-md rounded-bl-md py-2 w-428px flex flex-row"
-                            >
-                                <p className="w-full">Key Combination Input</p> <KeyboardIcon className="text-2xl" />
-                            </ButtonBase>
-                        ),
-                    }}
-                />
+            <div>
+                {(theme === "") ? (
+                    <Skeleton variant="rectangular" className="w-full rounded-md h-16" />
+                ) : (
+                    <div className="flex flex-col">
+                        <div className="w-full block dark:hidden">
+                            <TextField
+                                id="simulatorLightTextField"
+                                placeholder="Please enter a text to try it the commands"
+                                value={input}
+                                onChange={(e: any) => onChangeInput(e)}
+                                onKeyDown={(e: any) => handleKeyPress(e.key)}
+                                fullWidth
+                                className="text-2xl text-center rounded-lg"
+                                InputProps={{
+                                    style: {
+                                        fontSize: 18
+                                    },
+                                    inputProps: {
+                                        style: {
+                                            textAlign: "center"
+                                        },
+                                    },
+                                    startAdornment: (
+                                        <ButtonBase
+                                            className="-ml-4.5 h-14 text-2xl font-light bg-gray-600 text-white px-4 rounded-tl-md rounded-bl-md py-2 w-428px flex flex-row"
+                                        >
+                                            <p className="w-full">Key Combination Input</p> <KeyboardIcon className="text-2xl" />
+                                        </ButtonBase>
+                                    ),
+                                }}
+                            />
+                        </div>
+
+                        <div className="w-full hidden dark:block">
+                            <TextField
+                                id="simulatorDarkTextField"
+                                placeholder="Please enter a text to try it the commands"
+                                value={input}
+                                onChange={(e: any) => onChangeInput(e)}
+                                onKeyDown={(e: any) => handleKeyPress(e.key)}
+                                fullWidth
+                                className="text-2xl text-center border-white border-solid border focus:border focus:border-solid focus:border-blue-500 focus:outline-none text-white rounded-lg"
+                                InputProps={{
+                                    style: {
+                                        fontSize: 18
+                                    },
+                                    inputProps: {
+                                        style: {
+                                            textAlign: "center",
+                                            color: "white",
+                                        },
+                                    },
+                                    sx: {
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                border: '1px solid white',
+                                            },
+                                            '&:hover fieldset': {
+                                                border: '1px solid white',
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                border: '1px solid white',
+                                            },
+                                        },
+                                    },
+                                    startAdornment: (
+                                        <ButtonBase
+                                            className="-ml-4.5 h-14 text-2xl font-light bg-gray-600 text-white px-4 rounded-tl-md rounded-bl-md py-2 w-428px flex flex-row"
+                                        >
+                                            <p className="w-full">Key Combination Input</p> <KeyboardIcon className="text-2xl" />
+                                        </ButtonBase>
+                                    ),
+                                }}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
 
             <div className="mt-6">
                 <div className="flex flex-row gap-12">
                     <div className="w-56">
                         <div className="border border-gray-300 border-solid rounded-tl-md rounded-tr-md w-full">
-                            <h3 className="w-full bg-gray-200 text-gary-300 py-3 pl-4 text-xl rounded-tl-md rounded-tr-md">Statitics</h3>
+                            <h3 className="w-full bg-gray-200 dark:bg-courseCardDarkBg text-gary-300 dark:text-white py-3 pl-4 text-xl rounded-tl-md rounded-tr-md border-b border-b-transparent border-solid dark:border-b-white">Statitics</h3>
                             <div className="px-4 py-2">
-                                {[
-                                    {
-                                        label: "Correct",
-                                        value: 0,
-                                        color: "#d6ecdb",
-                                    },
-                                    {
-                                        label: "With Hints",
-                                        value: 0,
-                                        color: "#e3f6c5",
-                                    },
-                                    {
-                                        label: "Errors",
-                                        value: 0,
-                                        color: "#f2dede",
-                                    },
-                                    {
-                                        label: "Skipped",
-                                        value: 0,
-                                        color: "#dddddd",
-                                    },
-                                    {
-                                        label: "Ø Time (s)",
-                                        value: 0,
-                                        color: "#abcde3",
-                                    }
-                                ].map((item, index) => {
+                                {course_result_statistics.map((item, index) => {
                                     return (
                                         <div key={index} className="flex flex-row items-center justify-between my-4">
-                                            <p>{item.label} :</p>
+                                            <p className="dark:text-white">{item.label} :</p>
                                             <p
-                                                className={`px-4 py-1 rounded-md text-gray-900 dark:text-white`}
+                                                className={`px-4 py-1 rounded-md text-gray-900 dark:text-gray-700`}
                                                 style={{
                                                     backgroundColor: item.color
                                                 }}
@@ -180,7 +208,11 @@ const Simulator = () => {
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center">
-                        <KeyboardWrapper keyboardRef={keyboard} onChange={setInput} />
+                        {theme === "" ? (
+                            <Skeleton variant="rectangular" className="w-full rounded-md h-64" />
+                        ) : (
+                            <KeyboardWrapper keyboardRef={keyboard} onChange={setInput} />
+                        )}
                     </div>
                 </div>
             </div>

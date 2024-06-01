@@ -28,6 +28,7 @@ const config: Config = {
     extend: {
       boxShadow: {
         'course_card-shadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+        contactFormShadow: "0px 4px 9.3px 0px rgba(0, 0, 0, 0.25)"
       },
       margin: {
         "4.5": "14px"
@@ -73,6 +74,10 @@ const config: Config = {
         aboutGoalsHeader: "#FBFBFF",
         aboutGoalsBottomBar: "#DEAE07",
         appSecondary: "#F0F0F0",
+
+        // Contact Us Form 
+        contactFormHeading: "#000007",
+        contactFormSubHeading: "#1D1C1C"
       },
       backgroundImage: {
         'banner-keyboard': "url('/Home/banner.png')",

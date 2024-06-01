@@ -6,7 +6,7 @@ const LearnPage = () => {
         <div>
             <LearnPageBanner />
 
-            <CoursesList className="mt-10" />
+            <CoursesList className="mt-10 mb-24" />
         </div>
     )
 }

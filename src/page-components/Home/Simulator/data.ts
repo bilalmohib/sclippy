@@ -1,3 +1,31 @@
+export const course_result_statistics = [
+    {
+        label: "Correct",
+        value: 0,
+        color: "#d6ecdb",
+    },
+    {
+        label: "With Hints",
+        value: 0,
+        color: "#e3f6c5",
+    },
+    {
+        label: "Errors",
+        value: 0,
+        color: "#f2dede",
+    },
+    {
+        label: "Skipped",
+        value: 0,
+        color: "#dddddd",
+    },
+    {
+        label: "Ø Time (s)",
+        value: 0,
+        color: "#abcde3",
+    }
+]
+
 export const macOSCommands = [
     {
         name: "Cmd + C",
