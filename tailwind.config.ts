@@ -26,6 +26,9 @@ const config: Config = {
       roman: 'upper-roman',
     },
     extend: {
+      margin: {
+        "4.5": "14px"
+      },
       width: {
         "80%": "80%",
         "428px": "428px",

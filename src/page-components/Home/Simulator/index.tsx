@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
-import { Button, TextField } from "@mui/material";
+import { Button, ButtonBase, TextField } from "@mui/material";
 import { macOSCommands } from "./data";
 import KeyboardWrapper from "@/components/KeyboardWrapper";
+import KeyboardIcon from '@mui/icons-material/Keyboard';
 
 const Simulator = () => {
     const keyboard = useRef(null);
@@ -58,56 +59,130 @@ const Simulator = () => {
     }, [isMac]);
 
     const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
-        const input = event.target.value;
-        setInput(input);
-
         if (keyboard.current) {
             // @ts-ignore
-            keyboard.current.setInput(input);
+            // Remember to keep the previous input
+            keyboard.current.setInput(event.target.value);
+        }
+    };
+
+    const handleKeyPress = (key: string) => {
+        if (key === "Backspace") {
+            // Split the input into words
+            const words = input.split(' ');
+            // Get the last word
+            const lastWord = words[words.length - 1];
+
+            // Check if the last word is a command
+            const isCommand = macOSCommands.some(command => command.key === lastWord);
+
+            if (isCommand) {
+                // Remove the whole command (last word)
+                // words.pop();
+                // setInput(words.join(' '));
+            } else {
+                // Remove the last character
+                setInput(input.slice(0, -1));
+            }
+        } else {
+            if (key === "Shift") {
+                return;
+            }
+
+            if (key === "Control") {
+                // Check if "Ctrl" is already in the input
+                if (!input.includes("Ctrl")) {
+                    setInput(input + "Ctrl");
+                }
+            } else {
+                setInput(input + key);
+            }
         }
     };
 
     return (
-        <div className="mt-10">
-            <h3 className="text-5xl leading-tight text-center underline mb-6 text-primary font-semibold">
-                Simulator Playground
-            </h3>
-
-            <textarea
-                id="simulatorTextField"
-                className="w-full h-72 rounded-2xl text-xl text-black dark:text-white
-                outline-none bg-transparent placeholder-gray-400 dark:placeholder-gray-300
-                focus:ring border-2 border-solid border-blue-600 dark:border dark:border-solid dark:border-white focus:border-0 focus:outline-none p-3
-                "
-                placeholder="Please enter a text to try it the commands"
-                rows={5}
-                value={input}
-                onChange={(e: any) => onChangeInput(e)}
-            />
-
-            <div className="mt-6">
-                <KeyboardWrapper keyboardRef={keyboard} onChange={setInput} />
+        <div className="mt-10 px-20">
+            <div className="flex flex-row">
+                <TextField
+                    id="simulatorTextField"
+                    placeholder="Please enter a text to try it the commands"
+                    value={input}
+                    onChange={(e: any) => onChangeInput(e)}
+                    onKeyDown={(e: any) => handleKeyPress(e.key)}
+                    fullWidth
+                    className="text-2xl text-center"
+                    InputProps={{
+                        style: {
+                            fontSize: 18
+                        },
+                        inputProps: {
+                            style: { textAlign: "center" },
+                        },
+                        startAdornment: (
+                            <ButtonBase
+                                className="-ml-4.5 h-14 text-2xl font-light bg-gray-600 text-white px-4 rounded-tl-md rounded-bl-md py-2 w-428px flex flex-row"
+                            >
+                                <p className="w-full">Key Combination Input</p> <KeyboardIcon className="text-2xl" />
+                            </ButtonBase>
+                        ),
+                    }}
+                />
             </div>
 
-            <Alert icon={<CheckIcon fontSize="inherit" />} severity="success" className="mt-6">
-                The entered command will be displayed with green color.
-            </Alert>
-
-            <div className="mt-10 grid grid-cols-6 gap-5">
-                {macOSCommands.map((command, index) => {
-                    const isHighlighted = highlightedIndex === index;
-                    return (
-                        <Button
-                            key={index}
-                            variant="contained"
-                            color={isHighlighted ? "success" : "primary"}
-                            className={`py-3 px-4 normal-case text-xl ${isHighlighted ? "bg-green-600 hover:bg-green-800" : "bg-buttons hover:bg-blue-600"}`}
-                            title={command.description}
-                        >
-                            {command.name}
-                        </Button>
-                    )
-                })}
+            <div className="mt-6">
+                <div className="flex flex-row gap-12">
+                    <div className="w-56">
+                        <div className="border border-gray-300 border-solid rounded-tl-md rounded-tr-md w-full">
+                            <h3 className="w-full bg-gray-200 text-gary-300 py-3 pl-4 text-xl rounded-tl-md rounded-tr-md">Statitics</h3>
+                            <div className="px-4 py-2">
+                                {[
+                                    {
+                                        label: "Correct",
+                                        value: 0,
+                                        color: "#d6ecdb",
+                                    },
+                                    {
+                                        label: "With Hints",
+                                        value: 0,
+                                        color: "#e3f6c5",
+                                    },
+                                    {
+                                        label: "Errors",
+                                        value: 0,
+                                        color: "#f2dede",
+                                    },
+                                    {
+                                        label: "Skipped",
+                                        value: 0,
+                                        color: "#dddddd",
+                                    },
+                                    {
+                                        label: "Ø Time (s)",
+                                        value: 0,
+                                        color: "#abcde3",
+                                    }
+                                ].map((item, index) => {
+                                    return (
+                                        <div key={index} className="flex flex-row items-center justify-between my-4">
+                                            <p>{item.label} :</p>
+                                            <p
+                                                className={`px-4 py-1 rounded-md text-gray-900 dark:text-white`}
+                                                style={{
+                                                    backgroundColor: item.color
+                                                }}
+                                            >
+                                                {item.value}
+                                            </p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full flex flex-col justify-center items-center">
+                        <KeyboardWrapper keyboardRef={keyboard} onChange={setInput} />
+                    </div>
+                </div>
             </div>
         </div>
     )

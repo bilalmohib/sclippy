@@ -1,38 +1,20 @@
 "use client";
-import CourseCard from "./CourseCard";
 import { course_slider_data } from "./data";
 import { useEffect, useRef, useState } from "react";
-import CourseSliderActionButtons from "./CourseSliderActionButtons";
+import CommandSliderCard from "@/app/simulator/SimulatorSectionSlider/CommandSliderCard";
+import CommandSliderActionButtons from "@/app/simulator/SimulatorSectionSlider/CommandSliderActionButtons";
 
-interface CourseSectionSliderProps {
+interface SimulatorSectionSliderProps {
     className?: string;
 }
 
-const CourseSectionSlider = ({
+const SimulatorSectionSlider = ({
     className
-}: CourseSectionSliderProps) => {
+}: SimulatorSectionSliderProps) => {
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const [scrollDirection, setScrollDirection] = useState(1); 
+    const [scrollDirection, setScrollDirection] = useState(1);
     const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
-
-    const startScrolling = () => {
-        if (scrollContainerRef.current) {
-            const interval = setInterval(() => {
-                const container = scrollContainerRef.current!;
-                const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
-                if (scrollDirection === 1 && container.scrollLeft >= maxScrollLeft) {
-                    setScrollDirection(-1);
-                } else if (scrollDirection === -1 && container.scrollLeft <= 0) {
-                    setScrollDirection(1); 
-                }
-
-                container.scrollBy({ left: 30 * scrollDirection, behavior: "smooth" });
-            }, 50);
-            setScrollInterval(interval);
-        }
-    };
 
     const stopScrolling = () => {
         if (scrollInterval) {
@@ -41,24 +23,55 @@ const CourseSectionSlider = ({
         }
     };
 
+    const handleScrollRight = () => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current!;
+            container.scrollBy({ left: 40, behavior: "smooth" });
+        }
+    }
+
+    const handleScrollLeft = () => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current!;
+            container.scrollBy({ left: -40, behavior: "smooth" });
+        }
+    }
+
     useEffect(() => {
         return () => {
-            stopScrolling(); 
+            stopScrolling();
         };
     }, [scrollInterval]);
 
     return (
         <section>
-            <div
-                className={`overflow-hidden max-w-[90vw] ${className}`}
-                onMouseEnter={startScrolling}
-                onMouseLeave={stopScrolling}
-            >
-                <div ref={scrollContainerRef} className="relative overflow-x-scroll flex flex-row flex-nowrap gap-3 max-w-80% pb-5">
+            <div className={`overflow-hidden max-w-[90vw] ${className}`}>
+                <div ref={scrollContainerRef} className="relative overflow-x-scroll flex flex-row flex-nowrap gap-8 max-w-80% pb-5 cursor-grab">
                     {
                         course_slider_data.map((data, index) => (
-                            <div key={index} className="flex-shrink-0 flex-grow-0 basis-auto">
-                                <CourseCard
+                            <div
+                                key={index}
+                                className="flex-shrink-0 flex-grow-0 basis-auto"
+                                onDragStart={(e) => {
+                                    const startX = e.clientX;
+                                    const scrollLeft = scrollContainerRef.current!.scrollLeft;
+                                    const handleDrag = (e: MouseEvent) => {
+                                        const diff = e.clientX - startX;
+                                        scrollContainerRef.current!.scrollLeft = scrollLeft - diff;
+                                    };
+                                    const handleMouseUp = () => {
+                                        window.removeEventListener("mousemove", handleDrag);
+                                        window.removeEventListener("mouseup", handleMouseUp);
+                                        stopScrolling();
+                                    };
+                                    window.addEventListener("mousemove", handleDrag);
+                                    window.addEventListener("mouseup", handleMouseUp);
+                                }}
+                                onMouseLeave={() => stopScrolling()}
+                                onDragEnd={() => stopScrolling()}
+                                draggable={true}
+                            >
+                                <CommandSliderCard
                                     data={data}
                                 />
                             </div>
@@ -67,8 +80,12 @@ const CourseSectionSlider = ({
                 </div>
             </div>
 
-            <CourseSliderActionButtons className="mt-6" />
+            <CommandSliderActionButtons
+                handleScrollRight={handleScrollRight}
+                handleScrollLeft={handleScrollLeft}
+                className="mt-6"
+            />
         </section>
     )
 }
-export default CourseSectionSlider;
+export default SimulatorSectionSlider;
