@@ -5,7 +5,7 @@ const AboutUsBanner = () => {
         <div className="pt-28">
             <div className="flex flex-row justify-center items-center gap-4">
                 <Image
-                    src="/AboutUs/bannerLeftDome.png"
+                    src="/about-us/bannerLeftDome.png"
                     alt="about dome"
                     width={78}
                     height={69}
@@ -17,7 +17,7 @@ const AboutUsBanner = () => {
                 </h2>
 
                 <Image
-                    src="/AboutUs/bannerRightRing.png"
+                    src="/about-us/bannerRightRing.png"
                     alt="about ring"
                     width={48}
                     height={54}
