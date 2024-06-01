@@ -8,7 +8,7 @@ const LearnPageBanner = ({
     className
 }: LearnPageBannerProps) => {
     return (
-        <div className={`pt-14 pb-24 shadow-course_card-shadow ${className}`}>
+        <div className={`pt-14 pb-24 ${className}`}>
             <div className="flex flex-row justify-center items-center gap-4">
                 <Image
                     src="/learn/round-cube.png"

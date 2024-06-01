@@ -18,7 +18,7 @@ const CourseCard = ({
     const router = useRouter();
 
     return (
-        <div className={`w-508px rounded-xl bg-courseCardBg border hover:border-transparent hover:border-gray-500 border-dotted hover:shadow-md ${className}`}>
+        <div className={`w-508px rounded-xl bg-courseCardBg border hover:border-transparent hover:border-gray-500 border-dotted hover:shadow-md hover:animate-pulse cursor-default ${className}`}>
             <Image
                 src={data.image.src}
                 alt={data.image.alt}
