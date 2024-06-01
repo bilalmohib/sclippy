@@ -28,7 +28,7 @@ const LearnPageBanner = ({
                             className="relative -mr-12"
                         />
                     </div>
-                    <h2 className="text-bannerHeadingText text-center font-inter text-6xl font-bold">
+                    <h2 className="text-bannerHeadingText dark:text-white text-center font-inter text-6xl font-bold">
                         Mac Keyboard Shortcuts
                     </h2>
                     <div className="flex flex-col justify-center items-center">

@@ -63,7 +63,9 @@ const config: Config = {
         lightHeadingText: "#030098",
         darkHeadingText: "#8ab9ee",
         courseCardText: "#0B0B0A",
-        courseCardBg: "#E9E9E9",
+        courseCardLightBg: "#E9E9E9",
+        courseCardDarkBg: "#272727",
+        courseCardDarkButtonText: "#FFFDFD",
 
         // About Us Page 
         aboutUsLeftBannerBg: "#DBAE10",
