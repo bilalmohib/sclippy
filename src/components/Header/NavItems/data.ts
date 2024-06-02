@@ -1,4 +1,4 @@
-export const NavItemsList = [
+export const navItemsList = [
     {
         name: "Home",
         path: "/",
@@ -14,6 +14,10 @@ export const NavItemsList = [
     {
         name: "Learn",
         path: "/learn",
+    },
+    {
+        name: "Pricing",
+        path: "/pricing",
     },
     {
         name: "Contact",

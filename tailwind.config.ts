@@ -26,6 +26,9 @@ const config: Config = {
       roman: 'upper-roman',
     },
     extend: {
+      borderRadius: {
+        "2.5xl": "20px"
+      },
       boxShadow: {
         'course_card-shadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
         contactFormShadow: "0px 4px 9.3px 0px rgba(0, 0, 0, 0.25)"
@@ -42,7 +45,8 @@ const config: Config = {
       height: {
         "284px": "284px",
         "416px": "416px",
-        "554px": "554px"
+        "554px": "554px",
+        "600px": "600px",
       },
       fontFamily: {
         raleway: ['"Raleway", sans-serif', ...defaultTheme.fontFamily.sans],
@@ -68,6 +72,10 @@ const config: Config = {
         courseCardDarkBg: "#272727",
         courseCardDarkButtonText: "#FFFDFD",
 
+        // Pricing Page
+        pricingCardBg: "#F9F8F8",
+        pricingCardHeading: "rgba(11, 11, 10, 0.90)",
+
         // About Us Page 
         aboutUsLeftBannerBg: "#DBAE10",
         aboutUsRightBannerBg: "#E9D694",
@@ -82,6 +90,9 @@ const config: Config = {
       backgroundImage: {
         'banner-keyboard': "url('/Home/banner.png')",
         "simulator-banner": "url('/simulator/simulator-banner.png')",
+      },
+      fontSize: {
+        "40px": "40px"
       }
     },
   },
