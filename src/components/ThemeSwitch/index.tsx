@@ -66,7 +66,7 @@ const ThemeSwitch = ({
         <FormGroup>
             <FormControlLabel
                 control={
-                    <MaterialUISwitch sx={{ m: 1 }}
+                    <MaterialUISwitch
                         defaultChecked={checked}
                         onChange={onChange}
                     />

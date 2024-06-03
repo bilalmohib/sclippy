@@ -12,15 +12,15 @@ const MainAppLayout = ({
     return (
         <div>
             <TopNav />
-            <section className="px-20">
+            <section className="px-10 sm:px-20">
                 <Header />
             </section>
 
-            {children}
+            {/* {children}
 
             <br />
             <br />
-            <Footer />
+            <Footer /> */}
         </div>
     )
 }

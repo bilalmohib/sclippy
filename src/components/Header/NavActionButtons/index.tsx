@@ -9,7 +9,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 const NavActionButtons = () => {
     const router = useRouter();
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState<"light" | "dark">("light");
 
     useEffect(() => {
         const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -29,7 +29,7 @@ const NavActionButtons = () => {
         top: false,
         left: false,
         bottom: false,
-        right: true,
+        right: false,
     });
 
     const handleOpen = () => {
@@ -38,16 +38,16 @@ const NavActionButtons = () => {
 
     return (
         <div>
-            <div className='flex flex-row justify-center items-center gap-4'>
+            <div className='flex flex-row justify-center items-center gap-2 sm:gap-4'>
                 <Button
                     variant="contained"
                     color="primary"
-                    className="bg-buttons text-white text-xl h-10 normal-case"
+                    className="bg-buttons text-white text-xl h-10 normal-case hidden sm:block"
                     onClick={() => router.push("/simulator")}
                 >
                     Try for free
                 </Button>
-                <div className="">
+                <div className="ml-2 hidden ssm:block">
                     <ThemeSwitch
                         checked={theme === 'dark'}
                         onChange={toggleTheme}
@@ -57,12 +57,14 @@ const NavActionButtons = () => {
                     className="flex flex-row justify-center items-center xlg:hidden"
                     onClick={handleOpen}
                 >
-                    <MenuOpenIcon className="text-4xl" />
+                    <MenuOpenIcon className="text-4xl text-black dark:text-white" />
                 </ButtonBase>
 
                 <MobileNavbar
                     state={state}
                     setState={setState}
+                    theme={theme}
+                    toggleTheme={toggleTheme}
                 />
             </div>
         </div>
