@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sclippy
+
+Welcome to Sclippy, the Mac Shortcut Simulator! Sclippy is an innovative tool designed to enhance productivity by providing instant shortcut lookups within a Mac simulator. Whether you are a novice or an expert user, Sclippy simplifies the process of mastering keyboard shortcuts, making it an indispensable companion for optimizing your Mac experience.
+
+## Features
+
+- **Instant Shortcut Lookup:** Quickly access and learn keyboard shortcuts without interrupting your workflow.
+- **Real-time Suggestions:** Offers real-time suggestions and explanations for shortcuts relevant to the current application or task.
+- **Interactive Practice:** Enhance your Mac keyboard skills with interactive practice.
+- **Seamless Integration:** Integrates seamlessly into the macOS environment.
+
+## Sections
+
+### Home
+
+Welcome to the Mac Shortcut Simulator. Practice your Mac shortcuts here, such as Command + C, Command + X, Command + V.
+
+### Learn
+
+Step-by-step guides to learn various Mac shortcuts:
+- Cut, copy, and paste
+- Sleep, log out, and shut down your Mac
+- Finder and system shortcuts
+- Document shortcuts
+- Accessibility shortcuts
+- Other useful shortcuts
 
 ## Getting Started
 
-First, run the development server:
+- To get started, first clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/bilalmohib/sclippy.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next, navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd sclippy
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Then install the necessary dependencies:
 
-## Learn More
+1. Using Yarn:
+```bash
+yarn install
+```
+2. Using npm:
+```bash
+npm install
+```
+3. Using pnpm:
+```bash
+pnpm install
+```
+4. Using bun:
+```bash
+bun install
+```
 
-To learn more about Next.js, take a look at the following resources:
+- Finally, start the development server
+1. Using Yarn:
+```bash
+yarn start
+```
+2. Using npm:
+```bash
+npm start
+```
+3. Using pnpm:
+```bash
+pnpm start
+```
+4. Using bun:
+```bash
+bun start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+If you would like to contribute to Sclippy, please follow the steps below:
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes.
+4. Commit your changes.
+5. Push your changes to your branch.
+6. Create a pull request.
+7. Wait for your pull request to be reviewed.
+8. Once approved, your changes will be merged into the main branch.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Newsletter
 
-## Deploy on Vercel
+Get the latest updates on databases, including tips, tricks, and news. Subscribe to our newsletter today!
+**SIGN UP**
+[https://www.linkedin.com/newsletters/databases-are-not-difficult-6945124839913320448/?displayConfirmation=true](Databases are not difficult)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+© 2024. Sclippy All rights reserved.

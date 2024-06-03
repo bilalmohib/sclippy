@@ -5,9 +5,11 @@ const AboutUs = () => {
                 <h2 className="font-semibold text-4xl leading-10 text-[#000007] dark:text-white">Instant Shortcut Lookup with <span className="text-lightHeadingText">Mac Simulator</span></h2>
 
                 <p className="text-black dark:text-white mt-5">
-                    Lorem ipsum dolor sit amet consectetur. Consequat turpis pellentesque libero tristique. Pulvinar eu vulputate fames etiam eleifend turpis diam a. Fames lectus integer elementum egestas mi mattis. Sodales porttitor praesent duis vitae proin eu sapien. Quam mattis pulvinar sit egestas massa vel vel ipsum.
+                    Sclippy is an innovative tool designed to enhance productivity by providing instant shortcut lookups within a Mac simulator.
                     <br />
-                    Interdum auctor commodo magna metus augue rhoncus id faucibus eget. Neque convallis nunc feugiat hendrerit eget pretium vestibulum mi venenatis. Ultrices ut in viverra tellus. Tempor feugiat purus lectus tempus.
+                    This utility acts as a virtual assistant, helping users to quickly access and learn keyboard shortcuts without interrupting their workflow.
+                    <br />
+                    Sclippy seamlessly integrates into the macOS environment, offering real-time suggestions and explanations for shortcuts relevant to the current application or task. Whether you are navigating through complex software, coding, or performing routine tasks, Sclippy simplifies the process by reducing the time spent searching for shortcuts, thereby streamlining operations and boosting efficiency. Perfect for both novice and expert users, Sclippy ensures that mastering shortcuts is easy and intuitive, making it an indispensable companion for anyone looking to optimize their Mac experience.
                 </p>
             </div>
             <div className="w-6/12 bg-aboutUsRightBannerBg">

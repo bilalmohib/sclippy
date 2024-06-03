@@ -10,19 +10,28 @@ const AboutPage = () => {
             <AboutUsGoals
                 className="mt-24"
                 title="Our Mission"
-                description="Lorem ipsum dolor sit amet consectetur. Erat hendrerit lectus aliquam amet diam. Senectus tincidunt a turpis amet leo. Metus et varius lacinia aliquam curabitur magna amet. Dui parturient ac sed blandit egestas ut pulvinar varius a. Tristique commodo faucibus tortor tortor nulla et arcu nullam. Dictumst nisl viverra id mauris odio lectus semper lectus varius. Risus ac in ut eu suspendisse eu molestie dapibus.
-            Id neque morbi at et neque eu lectus quis. In porttitor urna diam mollis sagittis aliquam eu suspendisse. Rhoncus quis viverra felis pharetra tempor. Turpis faucibus venenatis vitae lacus etiam volutpat tortor. Ultrices quam diam turpis in mi. Imperdiet sit ridiculus curabitur facilisis risus vehicula non et. Blandit dis euismod id id morbi non. Scelerisque et magna lorem sit mattis odio eu leo egestas. Et volutpat ut ipsum mauris eget eget diam. Senectus vitae condimentum duis posuere morbi dui egestas. Pellentesque egestas sit nunc tellus. Et sed sit sit sem vestibulum. Sit porttitor mi mattis augue leo quis elementum.
-            Nulla volutpat elit pellentesque elementum commodo. Viverra sed feugiat nisl ultrices. Purus faucibus risus non tortor posuere enim. Tellus aliquet sed porttitor convallis ornare. Urna nulla ante lacinia nisi. Euismod interdum velit tellus eget tortor tempor ut urna. Varius sagittis malesuada odio feugiat est vestibulum sagittis consequat. Viverra congue quis egestas ornare sit facilisi fringilla ultrices. Mauris consectetur dolor elit elit neque. Sit ac est sed ut vulputate sed lobortis ac rhoncus. Sem ac libero tortor sapien tortor aliquet turpis donec. Scelerisque interdum tellus morbi mauris nulla scelerisque.
-            Facilisis venenatis id scelerisque condimentum eget id ultrices ultrices. Sodales eget mollis hendrerit et."
+                description="Our mission is to empower individuals and organizations to achieve their highest potential by providing intuitive and efficient tools for enhanced productivity. 
+                We strive to create innovative solutions that simplify complex tasks and streamline workflows, allowing our users to focus on what truly matters. 
+                By offering seamless integration and user-friendly interfaces, we aim to transform the way people interact with technology, making it more accessible and effective for everyone. 
+                Through continuous improvement and a commitment to excellence, we dedicate ourselves to helping our users save time, increase efficiency, and unlock new possibilities in their personal and professional lives."
             />
 
             <AboutUsGoals
                 className="mt-28"
                 title="Our Story"
-                description="Lorem ipsum dolor sit amet consectetur. Erat hendrerit lectus aliquam amet diam. Senectus tincidunt a turpis amet leo. Metus et varius lacinia aliquam curabitur magna amet. Dui parturient ac sed blandit egestas ut pulvinar varius a. Tristique commodo faucibus tortor tortor nulla et arcu nullam. Dictumst nisl viverra id mauris odio lectus semper lectus varius. Risus ac in ut eu suspendisse eu molestie dapibus.
-                Id neque morbi at et neque eu lectus quis. In porttitor urna diam mollis sagittis aliquam eu suspendisse. Rhoncus quis viverra felis pharetra tempor. Turpis faucibus venenatis vitae lacus etiam volutpat tortor. Ultrices quam diam turpis in mi. Imperdiet sit ridiculus curabitur facilisis risus vehicula non et. Blandit dis euismod id id morbi non. Scelerisque et magna lorem sit mattis odio eu leo egestas. Et volutpat ut ipsum mauris eget eget diam. Senectus vitae condimentum duis posuere morbi dui egestas. Pellentesque egestas sit nunc tellus. Et sed sit sit sem vestibulum. Sit porttitor mi mattis augue leo quis elementum.
-                Nulla volutpat elit pellentesque elementum commodo. Viverra sed feugiat nisl ultrices. Purus faucibus risus non tortor posuere enim. Tellus aliquet sed porttitor convallis ornare. Urna nulla ante lacinia nisi. Euismod interdum velit tellus eget tortor tempor ut urna. Varius sagittis malesuada odio feugiat est vestibulum sagittis consequat. Viverra congue quis egestas ornare sit facilisi fringilla ultrices. Mauris consectetur dolor elit elit neque. Sit ac est sed ut vulputate sed lobortis ac rhoncus. Sem ac libero tortor sapien tortor aliquet turpis donec. Scelerisque interdum tellus morbi mauris nulla scelerisque.
-                Facilisis venenatis id scelerisque condimentum eget id ultrices ultrices. Sodales eget mollis hendrerit et."
+                description="Our story began with a simple yet profound realization: technology should make our lives easier, not more complicated. As passionate tech enthusiasts and productivity aficionados, we often found ourselves bogged down by the sheer volume of tasks and the time spent searching for shortcuts and solutions. We saw an opportunity to create a tool that could alleviate this frustration and help users navigate their digital environments more efficiently."
+            />
+
+            <AboutUsGoals
+                className="mt-2"
+                title=""
+                description="In the early days, we started as a small team of developers and designers, united by a shared vision of enhancing productivity through intuitive solutions. We listened to the common struggles faced by professionals across various fields and realized that a tool for instant shortcut lookup could make a significant impact. Thus, Sclippy was born—a virtual assistant designed to seamlessly integrate into the macOS environment, providing real-time shortcut suggestions and explanations."
+            />
+
+            <AboutUsGoals
+                className="mt-2"
+                title=""
+                description="Today, Sclippy is more than just a tool; it’s a testament to our commitment to innovation and user-centric design. Our journey has been driven by the desire to make technology more accessible and effective, enabling our users to save time, increase efficiency, and unlock new possibilities. As we look to the future, we remain dedicated to our mission of transforming the way people interact with technology and helping them achieve their highest potential."
             />
 
             <div className="px-20 mt-36">

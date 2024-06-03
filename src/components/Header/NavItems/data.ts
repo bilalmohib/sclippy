@@ -20,6 +20,10 @@ export const navItemsList = [
         path: "/pricing",
     },
     {
+        name: "Blog",
+        path: "/blog",
+    },
+    {
         name: "Contact",
         path: "/contact",
     }

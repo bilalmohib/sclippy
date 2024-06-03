@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { Button } from "@mui/material";
-import ThemeSwitch from '@/components/ThemeSwitch';
+import Image from 'next/image';
+import MobileNavbar from './MobileNavbar';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Button, ButtonBase } from "@mui/material";
+import ThemeSwitch from '@/components/ThemeSwitch';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 const NavActionButtons = () => {
     const router = useRouter();
@@ -22,6 +25,17 @@ const NavActionButtons = () => {
         localStorage.theme = newTheme;
     };
 
+    const [state, setState] = useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: true,
+    });
+
+    const handleOpen = () => {
+        setState({ ...state, right: true });
+    };
+
     return (
         <div>
             <div className='flex flex-row justify-center items-center gap-4'>
@@ -33,9 +47,22 @@ const NavActionButtons = () => {
                 >
                     Try for free
                 </Button>
-                <ThemeSwitch
-                    checked={theme === 'dark'}
-                    onChange={toggleTheme}
+                <div className="">
+                    <ThemeSwitch
+                        checked={theme === 'dark'}
+                        onChange={toggleTheme}
+                    />
+                </div>
+                <ButtonBase
+                    className="flex flex-row justify-center items-center xlg:hidden"
+                    onClick={handleOpen}
+                >
+                    <MenuOpenIcon className="text-4xl" />
+                </ButtonBase>
+
+                <MobileNavbar
+                    state={state}
+                    setState={setState}
                 />
             </div>
         </div>

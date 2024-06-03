@@ -26,6 +26,14 @@ const config: Config = {
       roman: 'upper-roman',
     },
     extend: {
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xlg': '1150px',
+        'xl': '1280px',
+        '2xl': '1536px'
+      },
       borderRadius: {
         "2.5xl": "20px"
       },
@@ -47,6 +55,7 @@ const config: Config = {
         "416px": "416px",
         "554px": "554px",
         "600px": "600px",
+        "342px": "342px",
       },
       fontFamily: {
         raleway: ['"Raleway", sans-serif', ...defaultTheme.fontFamily.sans],

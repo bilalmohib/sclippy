@@ -14,7 +14,7 @@ const AboutUsGoals = ({
 }: AboutUsGoalsProps) => {
     return (
         <div className={`${className}`}>
-            <AboutUsGoalsHeader title={title} />
+            {title && <AboutUsGoalsHeader title={title} />}
             <AboutUsGoalsBody className="mt-6" description={description} />
         </div>
     )

@@ -13,7 +13,7 @@ const Header = ({
     return (
         <header className={`flex flex-row justify-between items-center w-full py-5 ${className}`}>
             <Logo />
-            <NavItems />
+            <NavItems className='hidden xlg:block' />
             <NavActionButtons />
         </header>
     )
