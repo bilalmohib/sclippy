@@ -7,7 +7,7 @@ const AboutPage = () => {
         <div>
             <AboutUsBanner />
 
-            <AboutUsGoals
+            {/* <AboutUsGoals
                 className="mt-24"
                 title="Our Mission"
                 description="Our mission is to empower individuals and organizations to achieve their highest potential by providing intuitive and efficient tools for enhanced productivity. 
@@ -34,9 +34,9 @@ const AboutPage = () => {
                 description="Today, Sclippy is more than just a tool; it’s a testament to our commitment to innovation and user-centric design. Our journey has been driven by the desire to make technology more accessible and effective, enabling our users to save time, increase efficiency, and unlock new possibilities. As we look to the future, we remain dedicated to our mission of transforming the way people interact with technology and helping them achieve their highest potential."
             />
 
-            <div className="px-20 mt-36">
+            <div className="hidden px-20 mt-36">
                 <AboutFeatures />
-            </div>
+            </div> */}
         </div>
     )
 }
