@@ -31,6 +31,8 @@ const config: Config = {
         'ssm': '400px',
         'sm': '640px',
         'md': '768px',
+        'slg': '800px',
+        'mlg': '900px',
         'lg': '1024px',
         'xlg': '1150px',
         'xl': '1280px',

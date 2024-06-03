@@ -16,11 +16,11 @@ const MainAppLayout = ({
                 <Header />
             </section>
 
-            {/* {children}
+            {children}
 
             <br />
             <br />
-            <Footer /> */}
+            <Footer />
         </div>
     )
 }
