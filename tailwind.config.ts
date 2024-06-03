@@ -103,6 +103,7 @@ const config: Config = {
       backgroundImage: {
         'banner-keyboard': "url('/Home/banner.png')",
         "simulator-banner": "url('/simulator/simulator-banner.png')",
+        'simulator-keyboard': "url('/Home/keyboard.png')",
       },
       fontSize: {
         "40px": "40px"

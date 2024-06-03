@@ -10,13 +10,13 @@ const CourseCard = ({
     className
 }: CourseCardProps) => {
     return (
-        <div className="rounded-3xl shadow-md px-6 py-9 flex flex-col gap-3 justify-start items-center w-96 h-44"
+        <div className="rounded-3xl shadow-md px-6 py-6 sm:py-9 flex flex-col gap-3 justify-start items-center w-60 sm:w-96 h-36 sm:h-44"
             style={{
                 background: data.color
             }}
         >
-            <h2 className="text-2xl text-center font-semibold text-white font-inter truncate w-72 select-none" title={data.title}>{data.title}</h2>
-            <p className="font-light text-xl text-center text-white line-clamp-2">{data.description}</p>
+            <h2 className="text-lg ssm:text-xl sm:text-2xl text-center font-semibold text-white font-inter truncate w-44 select-none" title={data.title}>{data.title}</h2>
+            <p className="font-light text-base ssm:text-lg sm:text-xl leading-tight sm:leading-normal text-center text-white line-clamp-2">{data.description}</p>
         </div>
     )
 }
